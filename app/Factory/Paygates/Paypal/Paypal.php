@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Factory\Paypal;
+namespace App\Factory\Paygates\Paypal;
 use DB;
 
 class Paypal
@@ -28,21 +28,27 @@ class Paypal
         $this->apiVersion = '1.0';
     }
 
-    public function DirectPayment()
+    /**
+     * Function do direct payment
+     *
+     * @param array $param: number of card, end date, CVV code, First name, last name, amount
+     * @return bool|string
+     */
+    public function DirectPayment($param)
     {
         $request_params = [
             'METHOD' => 'DoDirectPayment',
-            'USER' => 'sb-nlqij3868487_api1.business.example.com',
-            'PWD' => 'R9SRY8RF3CCSNE3P',
-            'SIGNATURE' => 'A3CZZ6twi-WT-7ZwGQua95N4-iDJAoXTkTDd9WQ7kUjYBGT3y8pqxT4D',
+            'USER' => $this->user,
+            'PWD' => $this->password,
+            'SIGNATURE' => $this->signature,
             'VERSION' => '65.1',
             'PAYMENTACTION' => 'Sale',
             'IPADDRESS' => '255.255.255.255',
             'RETURNFMFDETAILS' => 0,
             'CREDITCARDTYPE' => 'VISA',
-            'ACCT' => '4032039548750092',
-            'EXPDATE' => '122025',
-            'CVV2' => '123',
+            'ACCT' => $param['ACCT'],
+            'EXPDATE' => $param['EXPDATE'],
+            'CVV2' => $param['CVV2'],
             'FIRSTNAME' => 'Nguyen',
             'LASTNAME' => 'Long',
             'STREET' => 'Thanh Cong',
@@ -50,7 +56,7 @@ class Paypal
             'STATE' => '00',
             'COUNTRYCODE' => 'VN',
             'ZIP' => '10000',
-            'AMT' => '15.00',
+            'AMT' => $param['AMT'],
             'CURRENCYCODE' => 'USD',
             'DESC' => 'Check '
         ];
@@ -80,6 +86,6 @@ class Paypal
         //getting response from server
         $response = curl_exec($curl);
 
-        dd($response);
+        return $response;
     }
 }

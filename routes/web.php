@@ -19,4 +19,13 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashBoardController@index');
+
+    Route::group(['prefix' => 'paygates'], function () {
+//        Route::get('index', '');
+    });
+
+    Route::group(['prefix' => 'ngan-luong'], function () {
+        Route::get('direct-payment', 'DashBoardController@doDirectPayment');
+        Route::any('success', 'DashBoardController@success');
+    });
 });
