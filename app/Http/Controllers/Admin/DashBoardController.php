@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Factory\NganLuong\NganLuong;
+use App\Factory\Paygates\VNPAY\VNPAY;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -50,5 +51,16 @@ class DashBoardController extends Controller
         $nganluong = new NganLuong();
         $success = $nganluong->success($param);
         dd($success);
+    }
+
+    public function vnPay(Request $request)
+    {
+        $vnPay = new VNPAY();
+        $param = array(); // vnp_OrderInfo, vnp_OrderType, vnp_Amount
+        $param['vnp_OrderInfo'] = 'Test thanh toan tren VNPay';
+        $param['vnp_OrderType'] = '100000'; // Thuc pham tieu dung
+        $param['vnp_Amount'] = 10000;
+        $payment = $vnPay->directPayment($param);
+        dd($payment);
     }
 }

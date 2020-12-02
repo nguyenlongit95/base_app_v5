@@ -34,7 +34,7 @@ class Paypal
      * @param array $param: number of card, end date, CVV code, First name, last name, amount
      * @return bool|string
      */
-    public function DirectPayment($param)
+    public function directPayment($param)
     {
         $request_params = [
             'METHOD' => 'DoDirectPayment',

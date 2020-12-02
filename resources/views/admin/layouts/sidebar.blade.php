@@ -2,10 +2,10 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ asset('/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">DashBoard</a>
+            <a href="{{ url('/admin') }}" class="d-block">DashBoard</a>
         </div>
     </div>
 
@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="pages/widgets.html" class="nav-link">
+                <a href="{{ url('/admin/widgets/index') }}" class="nav-link">
                     <i class="fas fa-text-width"></i>
                     <p>
                         Widgets
@@ -66,7 +66,7 @@
                     <p>
                         Settings Options
                         <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">1</span>
+                        <span class="badge badge-info right">2</span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -74,6 +74,12 @@
                         <a href="{{ url('admin/paygates/index') }}" class="nav-link">
                             <i class="fab fa-amazon-pay"></i>
                             <p>Paygates</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/users/index') }}" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <p>Users</p>
                         </a>
                     </li>
                 </ul>

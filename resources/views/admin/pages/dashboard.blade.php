@@ -617,4 +617,8 @@
 
 @section('custom-js')
     <script src="{{ asset('/js/pages/dashboard/dashboard.js') }}"></script>
+    <script src="{{ asset('/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ asset('/plugins/jqvmap/maps/jquery.vmap.vietnam.js') }}"></script>
+    <script src="{{ asset('/dist/js/pages/dashboard.js') }}"></script>
 @endsection

@@ -25,7 +25,7 @@ class NganLuong {
      *
      * @param array $param
      */
-    public function DirectPayment($param)
+    public function directPayment($param)
     {
         $receiver = $this->RECEIVER;
         //Mã đơn hàng
