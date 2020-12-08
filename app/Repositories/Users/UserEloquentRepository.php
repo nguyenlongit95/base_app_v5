@@ -2,12 +2,11 @@
 
 namespace App\Repositories\Users;
 
-use App\Models\User;
+use App\User;
 use App\Repositories\Eloquent\EloquentRepository;
 
 class UserEloquentRepository extends EloquentRepository implements UserRepositoryinterface
 {
-
     /**
      * @return mixed
      */

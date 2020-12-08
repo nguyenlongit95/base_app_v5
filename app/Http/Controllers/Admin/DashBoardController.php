@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Factory\NganLuong\NganLuong;
 use App\Factory\Paygates\VNPAY\VNPAY;
+use App\Factory\Paygates\Paypal\paypal_entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -62,5 +63,22 @@ class DashBoardController extends Controller
         $param['vnp_Amount'] = 10000;
         $payment = $vnPay->directPayment($param);
         dd($payment);
+    }
+
+    public function paypalDirectPayment(Request $request)
+    {
+        $param = [
+            'paymentType' => 'Sale',                    // Type of transaction
+            'fname' => 'John',                              // first name
+            'lname' => 'Doe',                              // last name
+            'creditCardType' => 'VISA',                     // Card type: Visa, MasterCard, Discover, Amex
+            'creditCardNumber' => '4032039069635888',                   // Card number
+            'expDateMonth' => '12',                       // Exp month on card MM
+            'expDateYear' => '2025',                        // Exp year on card YYYY
+            'cvv2Number' => '123',                         // CVV number XXX
+            'ftotal' => '1000',                             // total amount transaction
+        ];
+        $paypal = new paypal_entry();
+        dd($paypal->directPayment($param));
     }
 }
