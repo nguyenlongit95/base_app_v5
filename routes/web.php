@@ -62,6 +62,17 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace
         Route::get('{id}/delete', 'UserController@delete');
     });
 
+    Route::group(['prefix' => 'menus'], function () {
+        Route::get('index', 'MenuController@index');
+        Route::get('{id}/edit', 'MenuController@edit');
+        Route::post('{id}/update', 'MenuController@update');
+        Route::post('create', 'MenuController@store');
+        Route::get('show/{id}', 'MenuController@show');
+        Route::get('create', 'MenuController@create');
+        Route::get('{id}/delete', 'MenuController@destroy');
+        Route::get('add', 'MenuController@add');
+    });
+
     Route::group(['prefix' => 'ngan-luong'], function () {
         Route::get('direct-payment', 'DashBoardController@doDirectPayment');
         Route::any('success', 'DashBoardController@success');

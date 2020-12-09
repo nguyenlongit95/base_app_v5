@@ -66,7 +66,7 @@
                     <p>
                         Settings Options
                         <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">2</span>
+                        <span class="badge badge-info right">3</span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
@@ -80,6 +80,12 @@
                         <a href="{{ url('admin/users/index') }}" class="nav-link">
                             <i class="fas fa-users"></i>
                             <p>Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/menus/index') }}" class="nav-link">
+                            <i class="fas fa-bars"></i>
+                            <p>Menus</p>
                         </a>
                     </li>
                 </ul>
